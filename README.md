@@ -40,9 +40,67 @@ SIFT算法具有旋转不变性及尺度不变性，非常适合于高分辨率�
 
 代码实现
 ---
-
+### 1.特征提取
+```
+#使用SIFT算法进行特征提取，返回特征点坐标及特征描述
+def FeatureExtract(image):
+    descriptor = cv2.SIFT_create()
+    kps, des = descriptor.detectAndCompute(image, None)
+    #将返回的特征点转化为numpy格式的数组
+    kps = np.float32([kp.pt for kp in kps])
+    return kps, des
+```
+### 2.特征匹配
+```
+#获取好的匹配关系，取比率为0.75
+def FeatureMatch(des1, des2):
+    matcher = cv2.BFMatcher()
+    matches = matcher.knnMatch(des1, des2, k = 2)
+    matches = sorted(matches, key = lambda x: x[0].distance / x[1].distance)
+    good = []
+    for m, n in matches:
+        if m.distance < 0.75 * n.distance:
+            good.append(m)
+    return good
+ ``` 
+ ### 3.图像拼接与融合（Poisson Blending）
+ 
+ ### 4.图像拼接与融合（Alpha Blending）
+ ```
+ def StitchAndBlend(image1, image2):
+    kps1, des1 = FeatureExtract(image1)
+    kps2, des2 = FeatureExtract(image2)
+    matches = FeatureMatch(des1, des2)
+    # 当筛选项的匹配对大于4对时：计算视角变换矩阵
+    if len(matches) > 4:
+        pts1 = np.float32([kps1[m.queryIdx] for m in matches]).reshape(-1, 1, 2)
+        pts2 = np.float32([kps2[m.trainIdx] for m in matches]).reshape(-1, 1, 2)
+        ransacReprojThre = 4
+        #使用RANCAC选择最优的四组匹配点，再计算H矩阵
+        H, status = cv2.findHomography(pts1, pts2, cv2.RANSAC, ransacReprojThre)
+        #计算mask，并对其进行羽化
+        mask = np.ones((image1.shape[0], image1.shape[1], 3), dtype="float")
+        mask_hed = cv2.warpPerspective(mask, H, (image2.shape[1], image2.shape[0]))
+        mask_ite = mask_hed.copy()
+        for _ in range(80):
+            mask_blured = cv2.blur(mask_ite, (40,40))
+            mask_ite = mask_blured.copy()
+        result1 = cv2.warpPerspective(image1, H, (image2.shape[1], image2.shape[0]))
+        result1 = result1.astype(float)
+        result1 = cv2.multiply(mask_blured, result1)
+        cv_show(' ',result1/255)
+        result2 = np.zeros((image2.shape[0], image2.shape[1], 3), np.uint8)
+        result2[0:image2.shape[0], 0:image2.shape[1]] = image2
+        result2 = result2.astype(float)
+        result2 = cv2.multiply(1-mask_blured, result2)
+        result = cv2.add(result1, result2)
+        result = result/255
+        cv_show('result', result)
+        return result, status
+ ```
 结果展示
 ---
+### 1.待拼接图像
 
 版本说明
 ---
