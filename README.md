@@ -100,9 +100,18 @@ def FeatureMatch(des1, des2):
  ```
 结果展示
 ---
-### 1.待拼接图像
+### 1.待嵌入图像
+
 ![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/left1.jpg)
-![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right2.png)
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right3.png)
+### 2.结果图像（Poisson Blending）
+
+
+### 3.结果图像（Alpha Blending）
+
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/left1.jpg)
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right3.png)
+
 版本说明
 ---
 opencv-python 4.5.2
