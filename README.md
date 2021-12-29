@@ -101,7 +101,8 @@ def FeatureMatch(des1, des2):
 结果展示
 ---
 ### 1.待拼接图像
-
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/left1.jpg)
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right2.png)
 版本说明
 ---
 opencv-python 4.5.2
