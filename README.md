@@ -111,8 +111,7 @@ def FeatureMatch(des1, des2):
 
 ### 4.结果图像（Alpha Blending）
 
-![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/left1.jpg)
-![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right3.png)
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/result/result_alpha.jpg)
 
 版本说明
 ---
