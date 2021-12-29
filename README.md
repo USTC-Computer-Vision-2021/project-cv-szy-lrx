@@ -104,10 +104,12 @@ def FeatureMatch(des1, des2):
 
 ![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/left1.jpg)
 ![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right3.png)
-### 2.结果图像（Poisson Blending）
+### 2.匹配图像（Poisson Blending）
 
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/result/matched_img.jpg)
+### 3.结果图像（Poisson Blending）
 
-### 3.结果图像（Alpha Blending）
+### 4.结果图像（Alpha Blending）
 
 ![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/left1.jpg)
 ![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/right3.png)
