@@ -161,10 +161,11 @@ def FeatureMatch(des1, des2):
 ## 工程说明
 
 ### 代码环境
-- python $\geq$ 3.7
-- opencv-python $\geq$ 4.5.2
+- python >= 3.7
+- opencv-python >= 4.5.2
 
 ### 工程结构
+```
 .
 ├── image
 │   ├── ....# 带拼接的原始图片
@@ -179,6 +180,7 @@ def FeatureMatch(des1, des2):
 └── USED-Image
     ├── hw_1.png
     └── hw1.png
+```
 ### 运行说明
 - 执行 python ./source/cv_alpha.py 得到使用alpha融合的结果
 - 执行 python ./source/cv_poisson.py 得到使用poisson融合的结果
