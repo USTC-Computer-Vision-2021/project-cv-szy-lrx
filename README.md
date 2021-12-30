@@ -144,8 +144,8 @@ def FeatureMatch(des1, des2):
 ---
 ### 1.待嵌入图像
 
-![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/source/left1.jpg)
-![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/source/right3.png)
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/image/left1.jpg)
+![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/image/right3.png)
 ### 2.匹配图像（Poisson Blending）
 
 ![](https://github.com/USTC-Computer-Vision-2021/project-cv-szy-lrx/blob/main/result/matched_img.jpg)
